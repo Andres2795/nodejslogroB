@@ -1,0 +1,446 @@
+                <!DOCTYPE html>
+<html lang="en">
+  <!-- Mirrored from spark.bootlab.io/dashboard-e-commerce by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 26 Jan 2024 23:18:42 GMT -->
+  <!-- Added by HTTrack --><meta
+    http-equiv="content-type"
+    content="text/html;charset=UTF-8"
+  /><!-- /Added by HTTrack -->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="Modern, flexible and responsive Bootstrap 5 admin &amp; dashboard template"
+    />
+    <meta name="author" content="Bootlab" />
+
+    <title>:: Práctica con NodeJS</title>
+
+    <!-- PICK ONE OF THE STYLES BELOW -->
+    <!-- <link href="css/modern.css" rel="stylesheet"> -->
+    <!-- <link href="css/classic.css" rel="stylesheet"> -->
+    <!-- <link href="css/dark.css" rel="stylesheet"> -->
+    <!-- <link href="css/light.css" rel="stylesheet"> -->
+
+    <!-- BEGIN SETTINGS -->
+    <!-- You can remove this after picking a style -->
+    <style>
+      body {
+        opacity: 0;
+      }
+    </style>
+    <script src="js/settings.js"></script>
+    <!-- END SETTINGS -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-120946860-7"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-120946860-7");
+    </script>
+  </head>
+
+  <body>
+    <div class="splash active">
+      <div class="splash-icon"></div>
+    </div>
+
+    <div class="wrapper">
+      <nav id="sidebar" class="sidebar">
+        <a class="sidebar-brand" href="index.html">
+          <svg>
+            <use xlink:href="#ion-ios-pulse-strong"></use>
+          </svg>
+          ESTUDIANTE
+        </a>
+        <div class="sidebar-content">
+          <div class="sidebar-user">
+            <img
+              src="data:image/jpeg;base64,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"
+              
+              class="img-fluid rounded-circle mb-2"
+              alt="Linda Miller"
+            />
+            <div class="fw-bold">Andres Lopez "Chento"</div>
+          </div>
+          <ul class="sidebar-nav">
+            <li class="sidebar-header">Main</li>
+            <li class="sidebar-item active">
+              <a
+                data-bs-target="#dashboards"
+                data-bs-toggle="collapse"
+                class="sidebar-link"
+              >
+                <i class="align-middle me-2 fas fa-fw fa-home"></i>
+                <span class="align-middle">Menu</span>
+              </a>
+              <ul
+                id="dashboards"
+                class="sidebar-dropdown list-unstyled collapse show"
+                data-bs-parent="#sidebar"
+              >
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="/"
+                    ><i class="fas fa-sign-out-alt me-2"></i> INICIO</a>
+                </li>
+              
+                <li class="sidebar-item active">
+                  <a class="sidebar-link" href="dashboard-e-commerce.html"
+                    >E-commerce</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+          
+        </div>
+      </nav>
+      <div class="main">
+        <nav class="navbar navbar-expand navbar-theme">
+          <a class="sidebar-toggle d-flex me-2">
+            <i class="hamburger align-self-center"></i>
+          </a>
+
+          <form class="d-none d-sm-inline-block">
+            <input
+              class="form-control form-control-lite"
+              type="text"
+              placeholder="Search projects..."
+            />
+          </form>
+
+          <div class="navbar-collapse collapse">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item dropdown active">
+                <a
+                  class="nav-link dropdown-toggle position-relative"
+                  href="#"
+                  id="messagesDropdown"
+                  data-bs-toggle="dropdown"
+                >
+                  <i class="align-middle fas fa-envelope-open"></i>
+                </a>
+                <div
+                  class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0"
+                  aria-labelledby="messagesDropdown"
+                >
+                  <div class="dropdown-menu-header">
+                    <div class="position-relative">4 New Messages</div>
+                  </div>
+                  <div class="list-group">
+                    <a href="#" class="list-group-item">
+                      <div class="row g-0 align-items-center">
+                        <div class="col-2">
+                          <img
+                            src="img/avatars/avatar-5.jpg"
+                            class="avatar img-fluid rounded-circle"
+                            alt="Michelle Bilodeau"
+                          />
+                        </div>
+                        <div class="col-10 ps-2">
+                          <div class="text-dark">Michelle Bilodeau</div>
+                          <div class="text-muted small mt-1">
+                            Nam pretium turpis et arcu. Duis arcu tortor.
+                          </div>
+                          <div class="text-muted small mt-1">5m ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="#" class="list-group-item">
+                      <div class="row g-0 align-items-center">
+                        <div class="col-2">
+                          <img
+                            src="https://midu.dev/images/tags/node.png"
+                            class="avatar img-fluid rounded-circle"
+                            alt="Kathie Burton"
+                          />
+                        </div>
+                        <div class="col-10 ps-2">
+                          <div class="text-dark">Kathie Burton</div>
+                          <div class="text-muted small mt-1">
+                            Pellentesque auctor neque nec urna.
+                          </div>
+                          <div class="text-muted small mt-1">30m ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="#" class="list-group-item">
+                      <div class="row g-0 align-items-center">
+                        <div class="col-2">
+                          <img
+                            src="img/avatars/avatar-2.jpg"
+                            class="avatar img-fluid rounded-circle"
+                            alt="Alexander Groves"
+                          />
+                        </div>
+                        <div class="col-10 ps-2">
+                          <div class="text-dark">Alexander Groves</div>
+                          <div class="text-muted small mt-1">
+                            Curabitur ligula sapien euismod vitae.
+                          </div>
+                          <div class="text-muted small mt-1">2h ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="#" class="list-group-item">
+                      <div class="row g-0 align-items-center">
+                        <div class="col-2">
+                          <img
+                            src="img/avatars/avatar-4.jpg"
+                            class="avatar img-fluid rounded-circle"
+                            alt="Daisy Seger"
+                          />
+                        </div>
+                        <div class="col-10 ps-2">
+                          <div class="text-dark">Daisy Seger</div>
+                          <div class="text-muted small mt-1">
+                            Aenean tellus metus, bibendum sed, posuere ac,
+                            mattis non.
+                          </div>
+                          <div class="text-muted small mt-1">5h ago</div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="dropdown-menu-footer">
+                    <a href="#" class="text-muted">Show all messages</a>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item dropdown ms-lg-2">
+                <a
+                  class="nav-link dropdown-toggle position-relative"
+                  href="#"
+                  id="alertsDropdown"
+                  data-bs-toggle="dropdown"
+                >
+                  <i class="align-middle fas fa-bell"></i>
+                  <span class="indicator"></span>
+                </a>
+                <div
+                  class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0"
+                  aria-labelledby="alertsDropdown"
+                >
+                  <div class="dropdown-menu-header">4 New Notifications</div>
+                  <div class="list-group">
+                    <a href="#" class="list-group-item">
+                      <div class="row g-0 align-items-center">
+                        <div class="col-2">
+                          <i class="ms-1 text-danger fas fa-fw fa-bell"></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">Update completed</div>
+                          <div class="text-muted small mt-1">
+                            Restart server 12 to complete the update.
+                          </div>
+                          <div class="text-muted small mt-1">2h ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="#" class="list-group-item">
+                      <div class="row g-0 align-items-center">
+                        <div class="col-2">
+                          <i
+                            class="ms-1 text-warning fas fa-fw fa-envelope-open"
+                          ></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">Lorem ipsum</div>
+                          <div class="text-muted small mt-1">
+                            Aliquam ex eros, imperdiet vulputate hendrerit et.
+                          </div>
+                          <div class="text-muted small mt-1">6h ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="#" class="list-group-item">
+                      <div class="row g-0 align-items-center">
+                        <div class="col-2">
+                          <i
+                            class="ms-1 text-primary fas fa-fw fa-building"
+                          ></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">Login from 192.186.1.1</div>
+                          <div class="text-muted small mt-1">8h ago</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a href="#" class="list-group-item">
+                      <div class="row g-0 align-items-center">
+                        <div class="col-2">
+                          <i
+                            class="ms-1 text-success fas fa-fw fa-bell-slash"
+                          ></i>
+                        </div>
+                        <div class="col-10">
+                          <div class="text-dark">New connection</div>
+                          <div class="text-muted small mt-1">
+                            Anna accepted your request.
+                          </div>
+                          <div class="text-muted small mt-1">12h ago</div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="dropdown-menu-footer">
+                    <a href="#" class="text-muted">Show all notifications</a>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item dropdown ms-lg-2">
+                <a
+                  class="nav-link dropdown-toggle position-relative"
+                  href="#"
+                  id="userDropdown"
+                  data-bs-toggle="dropdown"
+                >
+                  <i class="align-middle fas fa-cog"></i>
+                </a>
+                <div
+                  class="dropdown-menu dropdown-menu-end"
+                  aria-labelledby="userDropdown"
+                >
+                  <a class="dropdown-item" href="#"
+                    ><i class="align-middle me-1 fas fa-fw fa-user"></i> View
+                    Profile</a
+                  >
+                  <a class="dropdown-item" href="#"
+                    ><i class="align-middle me-1 fas fa-fw fa-comments"></i>
+                    Contacts</a
+                  >
+                  <a class="dropdown-item" href="#"
+                    ><i class="align-middle me-1 fas fa-fw fa-chart-pie"></i>
+                    Analytics</a
+                  >
+                  <a class="dropdown-item" href="#"
+                    ><i class="align-middle me-1 fas fa-fw fa-cogs"></i>
+                    Settings</a
+                  >
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#"
+                    ><i
+                      class="align-middle me-1 fas fa-fw fa-arrow-alt-circle-right"
+                    ></i>
+                    Sign out</a
+                  >
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <main class="content">
+          <div class="container-fluid">
+            <div class="header">
+              <h1 class="header-title">ORDEN SEGUN LA FECHA DE CONTRATRO</h1>
+              <p class="header-subtitle">
+                Los tiempos difíciles nunca duran, pero las personas fuertes sí (Robert H. Schuller)              
+             </p>
+            </div>
+            
+                <div class="row">
+                <div class="card">
+                  <div class="card-header">
+
+                    <h5 class="card-title">:: EMPLEADOS ORDENADOS SEGUN FECHA DE CONTRATACION {{mensaje}}::</h5>
+                  </div>
+                  </div>
+                  <form action="/ordenar" method="get" >
+                  <table class="table table-striped table-hover">
+                    <thead>
+                      
+                      <tr>
+                        <th>Nombre</th>
+                        <th>Salario </th>
+						            <th>Fecha de contratacion</th>
+                      </tr>
+                      
+                    </thead>
+                    <tbody>
+                      {{#each departamentos}}
+                      <tr>
+                        <td>{{nombre}}</td>
+                        <td>{{salario}}</td>
+                        <td>{{fechaDeContrato}}</td>
+                      </tr>
+                      {{/each}}
+                      
+                    </tbody>
+                  </table>
+                  </form>
+              </div>
+            
+        </main>
+        <footer class="footer">
+          <div class="container-fluid">
+            <div class="row text-muted">
+              <div class="col-8 text-start">
+                <ul class="list-inline">
+                  <li class="list-inline-item">
+                    <a class="text-muted" href="#">Support</a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a class="text-muted" href="#">Privacy</a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a class="text-muted" href="#">Terms of Service</a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a class="text-muted" href="#">Contact</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-4 text-end">
+                <p class="mb-0">
+                  &copy; 2023 -
+                  <a class="text-muted" href="dashboard-default.html">Spark</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <svg width="0" height="0" style="position: absolute">
+      <defs>
+        <symbol viewBox="0 0 512 512" id="ion-ios-pulse-strong">
+          <path
+            d="M448 273.001c-21.27 0-39.296 13.999-45.596 32.999h-38.857l-28.361-85.417a15.999 15.999 0 0 0-15.183-10.956c-.112 0-.224 0-.335.004a15.997 15.997 0 0 0-15.049 11.588l-44.484 155.262-52.353-314.108C206.535 54.893 200.333 48 192 48s-13.693 5.776-15.525 13.135L115.496 306H16v31.999h112c7.348 0 13.75-5.003 15.525-12.134l45.368-182.177 51.324 307.94c1.229 7.377 7.397 11.92 14.864 12.344.308.018.614.028.919.028 7.097 0 13.406-3.701 15.381-10.594l49.744-173.617 15.689 47.252A16.001 16.001 0 0 0 352 337.999h51.108C409.973 355.999 427.477 369 448 369c26.511 0 48-22.492 48-49 0-26.509-21.489-46.999-48-46.999z"
+          ></path>
+        </symbol>
+      </defs>
+    </svg>
+    <script src="js/app.js"></script>
+
+    <script>
+      $('input[name="datesingle"]').daterangepicker({
+        singleDatePicker: true,
+        showDropdowns: true,
+      });
+    </script>
+    <script>
+      $(function () {
+        $("#datatables-dashboard-products").DataTable({
+          pageLength: 6,
+          lengthChange: false,
+          bFilter: false,
+          autoWidth: false,
+        });
+      });
+    </script>
+  </body>
+
+  <!-- Mirrored from spark.bootlab.io/dashboard-e-commerce by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 26 Jan 2024 23:18:42 GMT -->
+</html>
